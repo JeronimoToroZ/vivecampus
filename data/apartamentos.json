@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "nombre": "Apartaestudio con vista a la ciénaga",
+    "conjunto": "Conjunto Speranza",
+    "precio": 1350000,
+    "habitaciones": 1,
+    "minutosUninorte": 7,
+    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
+    "resena": { "texto": "Llego caminando a clase y todo estaba como en las fotos", "autor": "Valentina, Medicina" },
+    "foto": "img/speranza.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Apartamento de 2 habitaciones para compartir",
+    "conjunto": "Conjunto Residencial Amore",
+    "precio": 1900000,
+    "habitaciones": 2,
+    "minutosUninorte": 10,
+    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": false },
+    "resena": { "texto": "Amplio y con buena brisa; ideal para dividir con un amigo", "autor": "Andrés, Ing. Industrial" },
+    "foto": "img/amore.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Habitación en apartamento compartido",
+    "conjunto": "Conjunto Residencial Palmar de la Ciénaga",
+    "precio": 850000,
+    "habitaciones": 1,
+    "minutosUninorte": 8,
+    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
+    "resena": { "texto": "La opción más económica sin sacrificar seguridad", "autor": "Camila, Psicología" },
+    "foto": "img/palmar.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Apartamento familiar con balcón",
+    "conjunto": "Conjunto Residencial Mirador de la Ciénaga",
+    "precio": 2600000,
+    "habitaciones": 3,
+    "minutosUninorte": 12,
+    "verificacion": { "documentos": true, "inspeccion": false, "arrendador": false },
+    "resena": null,
+    "foto": "img/mirador.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Apartaestudio amoblado",
+    "conjunto": "Conjunto Residencial Manglar",
+    "precio": 1150000,
+    "habitaciones": 1,
+    "minutosUninorte": 6,
+    "verificacion": { "documentos": false, "inspeccion": false, "arrendador": false },
+    "resena": null,
+    "foto": "img/manglar.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Apartamento de 2 habitaciones con piscina",
+    "conjunto": "Conjunto Residencial Palmanova",
+    "precio": 2200000,
+    "habitaciones": 2,
+    "minutosUninorte": 9,
+    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
+    "resena": { "texto": "El conjunto es tranquilo y el arrendador responde rápido", "autor": "Santiago, Derecho" },
+    "foto": "img/palmanova.jpg"
+  }
+]

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViveCampus — Vivienda verificada cerca de Uninorte</title>
+  <meta name="description" content="Apartamentos verificados para estudiantes foráneos a minutos de Uninorte, Barranquilla.">
+
+  <!-- Tipografía: Plus Jakarta Sans desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <div class="contenedor navbar__interior">
+      <a href="#" class="logo">Vive<span>Campus</span></a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="navbar__enlaces">
+          <li><a href="#buscar">Buscar</a></li>
+          <li><a href="#verificacion">Verificación</a></li>
+          <li><a href="#calculadora">Calculadora</a></li>
+          <li><a href="#arrendadores">Arrendadores</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero">
+      <div class="contenedor hero__interior">
+        <p class="hero__etiqueta">Para estudiantes foráneos · Uninorte</p>
+
+        <h1 class="hero__titulo">
+          Vivienda <span class="resaltado">verificada</span><br>
+          cerca de tu universidad
+        </h1>
+
+        <p class="hero__subtitulo">
+          Para estudiantes que llegan a Barranquilla: sin estafas, sin sorpresas en el costo.
+        </p>
+
+        <div class="hero__botones">
+          <a href="#buscar" class="boton boton--primario">Buscar apartamentos</a>
+          <a href="#arrendadores" class="boton boton--secundario">Soy arrendador</a>
+        </div>
+
+        <p class="hero__dato">6 conjuntos en Mallorquín · a minutos de Uninorte</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. EL PROBLEMA ============ -->
+    <section class="seccion" id="problema">
+      <div class="contenedor">
+        <p class="seccion__etiqueta">El problema</p>
+        <h2 class="seccion__titulo">Buscar vivienda lejos de casa no debería ser un riesgo</h2>
+
+        <div class="grid-3">
+          <article class="tarjeta-problema">
+            <p class="tarjeta-problema__cifra">8 de 10</p>
+            <h3>Encuentran algo distinto a las fotos</h3>
+            <p>Estudiantes foráneos que llegaron a un inmueble que no era el anunciado.</p>
+            <span class="etiqueta-ejemplo">Dato ilustrativo</span>
+          </article>
+
+          <article class="tarjeta-problema">
+            <i data-lucide="shield-alert" class="tarjeta-problema__icono"></i>
+            <h3>Tiempo perdido y riesgo de estafa</h3>
+            <p>Grupos de Facebook, WhatsApp y anuncios sin verificar, desde otra ciudad.</p>
+          </article>
+
+          <article class="tarjeta-problema">
+            <i data-lucide="receipt" class="tarjeta-problema__icono"></i>
+            <h3>Costos que nadie te cuenta</h3>
+            <p>Servicios, transporte y comida pueden sumar más de un millón al mes aparte del arriendo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. CÓMO FUNCIONA ============ -->
+    <section class="seccion seccion--crema" id="como-funciona">
+      <div class="contenedor">
+        <p class="seccion__etiqueta">Cómo funciona</p>
+        <h2 class="seccion__titulo">Tres pasos para elegir con tranquilidad</h2>
+
+        <ol class="pasos">
+          <li class="paso">
+            <span class="paso__numero">01</span>
+            <i data-lucide="search" class="paso__icono"></i>
+            <h3>Busca cerca de la U</h3>
+            <p>Filtra por precio, habitaciones y minutos a pie de Uninorte.</p>
+          </li>
+          <li class="paso">
+            <span class="paso__numero">02</span>
+            <i data-lucide="badge-check" class="paso__icono"></i>
+            <h3>Compara verificados</h3>
+            <p>Mira qué revisamos de cada inmueble: documentos, visita y arrendador.</p>
+          </li>
+          <li class="paso">
+            <span class="paso__numero">03</span>
+            <i data-lucide="calculator" class="paso__icono"></i>
+            <h3>Calcula tu costo real</h3>
+            <p>Suma arriendo, servicios, transporte y comida antes de firmar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Próximas secciones:
+         4. Buscador · 5. Detalle · 6. Calculadora
+         7. Arrendadores · 8. Lista de espera · 9. FAQ -->
+  </main>
+
+  <!-- Íconos Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
