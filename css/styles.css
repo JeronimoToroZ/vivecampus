@@ -182,8 +182,440 @@ a {
   font-size: 0.9rem;
 }
 
-/* ---------- 7. Celular ---------- */
+/* ---------- 7. Secciones (estructura común) ---------- */
+.seccion {
+  padding: 6rem 0;
+}
+
+.seccion--crema {
+  background: var(--crema);
+}
+
+.seccion__etiqueta {
+  margin: 0 0 0.75rem;
+  color: var(--verde);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seccion__titulo {
+  max-width: 640px;
+  margin: 0 0 3rem;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance; /* reparte las palabras para que no quede una sola al final */
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.etiqueta-ejemplo {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: var(--crema);
+  color: var(--gris);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---------- 8. El problema ---------- */
+.tarjeta-problema {
+  padding: 2rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: var(--radio);
+  background: var(--blanco);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-problema:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta-problema__cifra {
+  margin: 0 0 0.5rem;
+  color: var(--verde);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.tarjeta-problema__icono {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.75rem;
+  color: var(--verde);
+}
+
+.tarjeta-problema h3,
+.paso h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.tarjeta-problema p,
+.paso p {
+  margin: 0;
+  color: var(--gris);
+}
+
+/* ---------- 9. Cómo funciona ---------- */
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paso {
+  position: relative;
+  padding: 2rem;
+  border-radius: var(--radio);
+  background: var(--blanco);
+}
+
+.paso__numero {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  color: rgba(107, 142, 35, 0.25);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.paso__icono {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 1.25rem;
+  color: var(--verde);
+}
+
+/* ---------- 10. Qué verificamos ---------- */
+.verificacion {
+  padding: 2rem;
+  border-left: 3px solid var(--verde);
+}
+
+.verificacion__icono {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1rem;
+  color: var(--verde);
+}
+
+.verificacion h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.verificacion p {
+  margin: 0;
+  color: var(--gris);
+}
+
+/* ---------- 11. Buscador: filtros ---------- */
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+}
+
+.filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.filtro select {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  border-radius: 10px;
+  background: var(--blanco);
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filtro select:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}
+
+.resultados__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem 0 1rem;
+}
+
+.resultados__cabecera p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.resultados__cabecera .etiqueta-ejemplo {
+  margin: 0;
+  background: var(--blanco);
+}
+
+/* ---------- 12. Buscador: tarjetas ---------- */
+.resultados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: var(--blanco);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
+
+/* Contenedor de la foto: si la foto no existe, se ve el fondo con el ícono */
+.tarjeta__foto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #e3e6d0, #cfd5b4);
+  color: var(--verde-oscuro);
+}
+
+.tarjeta__foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.tarjeta__conjunto {
+  margin: 0;
+  color: var(--gris);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tarjeta__nombre {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.tarjeta__datos {
+  margin: 0 0 1rem;
+  color: var(--gris);
+  font-size: 0.85rem;
+}
+
+.tarjeta__precio {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.tarjeta__precio span {
+  color: var(--gris);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tarjeta .boton {
+  margin-top: auto;
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* ---------- 13. Insignia de verificación ---------- */
+.insignia {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.insignia__iconos {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.insignia__iconos svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ok {
+  color: var(--verde);
+}
+
+.pendiente {
+  color: #b9bcb0;
+}
+
+.insignia--completa {
+  color: var(--verde-oscuro);
+}
+
+.insignia--parcial {
+  color: #8a6d1d;
+}
+
+.insignia--ninguna {
+  color: var(--gris);
+}
+
+.sin-resultados {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  border-radius: var(--radio);
+  background: var(--blanco);
+  text-align: center;
+  color: var(--gris);
+}
+
+/* ---------- 14. Detalle (ventana emergente) ---------- */
+.detalle {
+  width: min(100% - 2rem, 640px);
+  max-height: 90vh;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  overflow-y: auto;
+}
+
+.detalle::backdrop {
+  background: rgba(17, 17, 17, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.detalle__cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--blanco);
+  cursor: pointer;
+}
+
+.detalle .tarjeta__foto {
+  aspect-ratio: 16 / 9;
+}
+
+.detalle__cuerpo {
+  padding: 2rem;
+}
+
+.detalle__cuerpo h3 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.detalle__lista {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detalle__lista li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.detalle__lista svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.detalle__lista strong {
+  display: block;
+}
+
+.detalle__lista small {
+  color: var(--gris);
+}
+
+.resena {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radio);
+  background: var(--crema);
+}
+
+.resena p {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+.resena small {
+  color: var(--gris);
+}
+
+/* ---------- 15. Celular ---------- */
+@media (max-width: 900px) {
+  .resultados {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 760px) {
+  .seccion {
+    padding: 4rem 0;
+  }
+
+  .grid-3,
+  .pasos,
+  .filtros,
+  .resultados {
+    grid-template-columns: 1fr;
+  }
+
   .navbar__enlaces {
     display: none; /* el menú móvil lo hacemos más adelante */
   }

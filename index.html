@@ -114,13 +114,97 @@
       </div>
     </section>
 
+    <!-- ============ 4. QUÉ VERIFICAMOS ============ -->
+    <section class="seccion" id="verificacion">
+      <div class="contenedor">
+        <p class="seccion__etiqueta">Verificación</p>
+        <h2 class="seccion__titulo">Tres revisiones antes de que confíes en un anuncio</h2>
+
+        <div class="grid-3">
+          <article class="verificacion">
+            <i data-lucide="file-check" class="verificacion__icono"></i>
+            <h3>Documentos</h3>
+            <p>Revisamos el certificado de tradición y libertad y el contrato para confirmar que quien arrienda tiene derecho a hacerlo.</p>
+          </article>
+          <article class="verificacion">
+            <i data-lucide="house" class="verificacion__icono"></i>
+            <h3>Inspección</h3>
+            <p>Una persona del equipo visita el inmueble y confirma que coincide con las fotos y la descripción.</p>
+          </article>
+          <article class="verificacion">
+            <i data-lucide="user-check" class="verificacion__icono"></i>
+            <h3>Arrendador</h3>
+            <p>Confirmamos la identidad del arrendador con su cédula y su autorización de tratamiento de datos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. BUSCADOR ============ -->
+    <section class="seccion seccion--crema" id="buscar">
+      <div class="contenedor">
+        <p class="seccion__etiqueta">Buscador</p>
+        <h2 class="seccion__titulo">Encuentra tu lugar cerca de la U</h2>
+
+        <!-- Filtros: cada <select> tiene un id para leerlo desde JavaScript -->
+        <form class="filtros" id="filtros">
+          <label class="filtro">
+            <span>Precio mensual</span>
+            <select id="filtro-precio">
+              <option value="todos">Cualquier precio</option>
+              <option value="0-1000000">Menos de 1 M</option>
+              <option value="1000000-1500000">1 M a 1,5 M</option>
+              <option value="1500000-2000000">1,5 M a 2 M</option>
+              <option value="2000000-99999999">Más de 2 M</option>
+            </select>
+          </label>
+
+          <label class="filtro">
+            <span>Habitaciones</span>
+            <select id="filtro-habitaciones">
+              <option value="todas">Cualquiera</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3 o más</option>
+            </select>
+          </label>
+
+          <label class="filtro">
+            <span>Distancia a Uninorte</span>
+            <select id="filtro-minutos">
+              <option value="todos">Cualquier distancia</option>
+              <option value="5">Hasta 5 min a pie</option>
+              <option value="10">Hasta 10 min a pie</option>
+              <option value="15">Hasta 15 min a pie</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="resultados__cabecera">
+          <p id="contador-resultados"></p>
+          <span class="etiqueta-ejemplo">Datos de ejemplo</span>
+        </div>
+
+        <!-- Aquí JavaScript dibuja las tarjetas -->
+        <div class="resultados" id="resultados"></div>
+      </div>
+    </section>
+
+    <!-- ============ DETALLE DEL APARTAMENTO (ventana emergente) ============ -->
+    <dialog class="detalle" id="detalle">
+      <button class="detalle__cerrar" id="detalle-cerrar" aria-label="Cerrar">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="detalle-contenido"></div>
+    </dialog>
+
     <!-- Próximas secciones:
-         4. Buscador · 5. Detalle · 6. Calculadora
-         7. Arrendadores · 8. Lista de espera · 9. FAQ -->
+         6. Calculadora · 7. Arrendadores · 8. Lista de espera · 9. FAQ -->
   </main>
 
-  <!-- Íconos Lucide -->
+  <!-- Íconos Lucide (va primero porque los otros scripts lo usan) -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/buscador.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
