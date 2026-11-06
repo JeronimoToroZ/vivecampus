@@ -187,6 +187,11 @@ a {
   padding: 6rem 0;
 }
 
+/* Al saltar con un enlace (#calculadora), deja espacio para la navbar fija */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 .seccion--crema {
   background: var(--crema);
 }
@@ -597,7 +602,138 @@ a {
   color: var(--gris);
 }
 
-/* ---------- 15. Celular ---------- */
+/* ---------- 15. Calculadora ---------- */
+.calculadora {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.calculadora__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: var(--radio);
+}
+
+.calculadora__origen {
+  margin: 0 0 0.5rem;
+  color: var(--verde-oscuro);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.campo small {
+  color: var(--gris);
+  font-weight: 400;
+}
+
+.campo input {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.campo input:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}
+
+.calculadora__resultado {
+  position: sticky;
+  top: 96px; /* se queda visible mientras bajas por los campos */
+  padding: 2rem;
+  border-radius: var(--radio);
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.calculadora__total-etiqueta {
+  margin: 0;
+  color: #b8bcae;
+  font-size: 0.9rem;
+}
+
+.calculadora__total {
+  margin: 0.25rem 0 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.barra {
+  display: flex;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+  background: #2a2a2a;
+}
+
+.barra span {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.desglose {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desglose li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+
+.desglose__nombre {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.desglose__punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.desglose__valor {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.desglose__valor small {
+  margin-left: 0.4rem;
+  color: #b8bcae;
+  font-weight: 400;
+}
+
+.calculadora__nota {
+  margin: 1.25rem 0 0;
+  color: #b8bcae;
+  font-size: 0.8rem;
+}
+
+/* ---------- 16. Celular ---------- */
 @media (max-width: 900px) {
   .resultados {
     grid-template-columns: repeat(2, 1fr);
@@ -612,8 +748,13 @@ a {
   .grid-3,
   .pasos,
   .filtros,
-  .resultados {
+  .resultados,
+  .calculadora {
     grid-template-columns: 1fr;
+  }
+
+  .calculadora__resultado {
+    position: static;
   }
 
   .navbar__enlaces {

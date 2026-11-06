@@ -18,6 +18,9 @@ const botonCerrar = document.getElementById("detalle-cerrar");
 // Aquí guardamos los apartamentos cuando lleguen del JSON.
 let apartamentos = [];
 
+// El apartamento que está abierto en la ventana de detalle.
+let aptoSeleccionado = null;
+
 // Textos de cada verificación (los usa el detalle).
 const VERIFICACIONES = {
   documentos: { titulo: "Documentos revisados", icono: "file-check" },
@@ -141,6 +144,7 @@ function mostrarResultados() {
 function abrirDetalle(id) {
   const apto = apartamentos.find((a) => a.id === id);
   if (!apto) return;
+  aptoSeleccionado = apto; // lo recordamos para la calculadora
 
   const listaVerificaciones = Object.entries(VERIFICACIONES)
     .map(([clave, info]) => {
@@ -198,7 +202,16 @@ botonCerrar.addEventListener("click", () => ventanaDetalle.close());
 
 ventanaDetalle.addEventListener("click", (evento) => {
   if (evento.target === ventanaDetalle) ventanaDetalle.close(); // clic en el fondo oscuro
-  if (evento.target.closest("#detalle-calcular")) ventanaDetalle.close();
+  if (evento.target.closest("#detalle-calcular")) {
+    ventanaDetalle.close();
+
+    // Avisamos a la calculadora qué apartamento se eligió.
+    // buscador.js no toca la calculadora directamente: solo lanza un evento,
+    // y calculadora.js decide qué hacer con él. Así cada archivo es independiente.
+    document.dispatchEvent(
+      new CustomEvent("apartamento-elegido", { detail: aptoSeleccionado })
+    );
+  }
 });
 
 // ---------- 8. Inicio: cargar el JSON ----------

@@ -198,12 +198,66 @@
       <div id="detalle-contenido"></div>
     </dialog>
 
+    <!-- ============ 6. CALCULADORA ============ -->
+    <section class="seccion" id="calculadora">
+      <div class="contenedor">
+        <p class="seccion__etiqueta">Calculadora de costos</p>
+        <h2 class="seccion__titulo">¿Cuánto te va a costar vivir aquí?</h2>
+
+        <div class="calculadora">
+          <!-- Columna izquierda: los gastos que escribe el usuario -->
+          <form class="calculadora__campos" id="calculadora-form">
+            <p class="calculadora__origen" id="calculadora-origen">
+              Ejemplo con el apartaestudio de Conjunto Speranza
+            </p>
+
+            <label class="campo">
+              <span>Arriendo</span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="gasto-alquiler" value="1.350.000">
+            </label>
+            <label class="campo">
+              <span>Servicios públicos</span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="gasto-servicios" value="220.000">
+            </label>
+            <label class="campo">
+              <span>Transporte</span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="gasto-transporte" value="100.000">
+            </label>
+            <label class="campo">
+              <span>Alimentación</span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="gasto-alimentacion" value="700.000">
+            </label>
+            <label class="campo">
+              <span>Otros gastos <small>(internet, lavandería, aseo)</small></span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="gasto-otros" value="120.000">
+            </label>
+          </form>
+
+          <!-- Columna derecha: el resultado (lo llena calculadora.js) -->
+          <div class="calculadora__resultado">
+            <p class="calculadora__total-etiqueta">Total mensual estimado</p>
+            <p class="calculadora__total" id="calculadora-total" aria-live="polite">COP 0</p>
+
+            <!-- Barra que muestra qué parte del total es cada gasto -->
+            <div class="barra" id="calculadora-barra"></div>
+
+            <ul class="desglose" id="calculadora-desglose"></ul>
+
+            <p class="calculadora__nota">
+              Los valores de servicios, transporte, alimentación y otros son estimaciones de ejemplo. Ajústalos a tu caso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Próximas secciones:
-         6. Calculadora · 7. Arrendadores · 8. Lista de espera · 9. FAQ -->
+         7. Arrendadores · 8. Lista de espera · 9. FAQ -->
   </main>
 
   <!-- Íconos Lucide (va primero porque los otros scripts lo usan) -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/calculadora.js"></script>
   <script src="js/buscador.js"></script>
   <script src="js/main.js"></script>
 </body>
