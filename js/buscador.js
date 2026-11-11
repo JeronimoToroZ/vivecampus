@@ -46,11 +46,13 @@ function contarVerificaciones(verificacion) {
   return Object.values(verificacion).filter(Boolean).length;
 }
 
-// Devuelve el texto y la clase CSS de la insignia según el conteo
+// Devuelve el texto y la clase CSS de la insignia según el conteo.
+// Todo arrendador paga el Plan Verificado, así que un inmueble nunca está
+// "sin verificar": o ya pasó las 3 revisiones, o está en proceso.
 function describirInsignia(total) {
-  if (total === 3) return { texto: "3 de 3 verificaciones", clase: "insignia--completa" };
-  if (total === 0) return { texto: "Sin verificar", clase: "insignia--ninguna" };
-  return { texto: `${total} de 3 verificaciones`, clase: "insignia--parcial" };
+  if (total === 3) return { texto: "Verificado · 3 de 3", clase: "insignia--completa" };
+  if (total === 0) return { texto: "Verificación pendiente", clase: "insignia--ninguna" };
+  return { texto: `En verificación · ${total} de 3`, clase: "insignia--parcial" };
 }
 
 // HTML de la foto: si la imagen no carga, se esconde y queda el fondo con ícono
@@ -138,6 +140,21 @@ function mostrarResultados() {
 
   contenedorResultados.innerHTML = lista.map(crearTarjeta).join("");
   dibujarIconos(); // convierte los íconos nuevos en SVG
+  animarTarjetas();
+}
+
+// Al filtrar, las tarjetas nuevas entran una tras otra
+function animarTarjetas() {
+  const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!window.gsap || reducir) return;
+
+  gsap.from("#resultados .tarjeta", {
+    y: 24,
+    opacity: 0,
+    duration: 0.45,
+    ease: "power2.out",
+    stagger: 0.06, // 0,06 s entre una tarjeta y la siguiente
+  });
 }
 
 // ---------- 6. Ventana de detalle ----------

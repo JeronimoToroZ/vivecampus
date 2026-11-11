@@ -43,6 +43,16 @@ a {
 }
 
 /* ---------- 3. Utilidades ---------- */
+/* Oculto en pantalla, pero el lector de pantalla sí lo lee */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .contenedor {
   width: min(100% - 2.5rem, var(--ancho-max));
   margin-inline: auto;
@@ -54,11 +64,11 @@ a {
   padding: 0.9rem 1.6rem;
   border-radius: 999px;
   font-weight: 600;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: translate 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .boton:hover {
-  transform: translateY(-2px);
+  translate: 0 -2px; /* "translate" y no "transform": así no choca con GSAP */
 }
 
 .boton--primario {
@@ -88,6 +98,12 @@ a {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Clase que main.js agrega al bajar: la navbar se separa del contenido */
+.navbar--scroll {
+  box-shadow: 0 4px 24px rgba(17, 17, 17, 0.06);
 }
 
 .navbar__interior {
@@ -237,11 +253,11 @@ section[id] {
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: var(--radio);
   background: var(--blanco);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tarjeta-problema:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: var(--sombra);
 }
 
@@ -394,11 +410,11 @@ section[id] {
   overflow: hidden;
   border-radius: var(--radio);
   background: var(--blanco);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tarjeta:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: var(--sombra);
 }
 
@@ -733,7 +749,242 @@ section[id] {
   font-size: 0.8rem;
 }
 
-/* ---------- 16. Celular ---------- */
+/* ---------- 16. Arrendadores ---------- */
+.arrendadores {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beneficio {
+  display: flex;
+  gap: 1rem;
+}
+
+.beneficio__icono {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--verde);
+}
+
+.beneficio h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.beneficio p {
+  margin: 0;
+  color: var(--gris);
+}
+
+.plan {
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: var(--verde);
+  color: var(--blanco);
+  box-shadow: 0 20px 40px rgba(85, 114, 27, 0.25);
+}
+
+.plan__etiqueta {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plan__precio {
+  margin: 0.25rem 0 0;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.plan__precio span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.plan__linea {
+  margin: 1.75rem 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.plan__incluye {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.plan__incluye li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.plan__incluye svg {
+  width: 18px;
+  height: 18px;
+}
+
+.boton--claro {
+  display: block;
+  background: var(--blanco);
+  color: var(--verde-oscuro);
+  text-align: center;
+}
+
+.boton--claro:hover {
+  background: var(--crema);
+}
+
+/* ---------- 17. Preguntas frecuentes ---------- */
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.faq__lista {
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.pregunta {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.pregunta summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none; /* quita el triángulo por defecto */
+}
+
+.pregunta summary::-webkit-details-marker {
+  display: none; /* lo mismo, para Safari */
+}
+
+/* Nuestro propio "+" que gira y se vuelve "×" al abrir */
+.pregunta summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--verde);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.pregunta[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.pregunta summary:hover {
+  color: var(--verde-oscuro);
+}
+
+.pregunta summary:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 4px;
+}
+
+.pregunta p {
+  margin: 0;
+  padding: 0 2.5rem 1.5rem 0;
+  color: var(--gris);
+}
+
+/* ---------- 18. Footer ---------- */
+.footer {
+  padding: 4.5rem 0 2rem;
+  background: var(--negro);
+  color: #b8bcae;
+}
+
+.logo--claro {
+  color: var(--blanco);
+}
+
+.logo--claro span {
+  color: #9bb35a; /* verde más claro: se lee mejor sobre negro */
+}
+
+.footer__superior {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.footer__frase {
+  max-width: 280px;
+  margin: 0.75rem 0 0;
+}
+
+.footer__columna {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__columna h3 {
+  margin: 0 0 0.4rem;
+  color: var(--blanco);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer__columna a {
+  transition: color 0.2s ease;
+}
+
+.footer__columna a:hover {
+  color: var(--blanco);
+}
+
+.footer__inferior {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.footer__inferior p {
+  margin: 0;
+}
+
+/* ---------- 19. Celular ---------- */
 @media (max-width: 900px) {
   .resultados {
     grid-template-columns: repeat(2, 1fr);
@@ -749,8 +1000,15 @@ section[id] {
   .pasos,
   .filtros,
   .resultados,
-  .calculadora {
+  .calculadora,
+  .arrendadores,
+  .faq,
+  .footer__superior {
     grid-template-columns: 1fr;
+  }
+
+  .faq {
+    gap: 1rem;
   }
 
   .calculadora__resultado {
@@ -763,5 +1021,17 @@ section[id] {
 
   .hero {
     padding: 4.5rem 0 4rem;
+  }
+
+  .arrendadores {
+    gap: 2.5rem;
+  }
+
+  .plan {
+    padding: 2rem;
+  }
+
+  .plan__precio span {
+    display: block; /* en celular, "/ inmueble al año" va en su propia línea */
   }
 }

@@ -2,7 +2,7 @@
 
 Plataforma de vivienda verificada para estudiantes universitarios foráneos cerca de Uninorte (Mallorquín, Barranquilla). Proyecto de la materia Creación de Empresa.
 
-Equipo: Hellen Arango, Nicole Duque, Isabela Noble, Jerónimo.
+Equipo: Hellen Arango, Nicole Duque, Isabela Noble, Jerónimo (The Goat).
 
 ## Estructura
 

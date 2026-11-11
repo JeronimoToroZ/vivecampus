@@ -23,6 +23,13 @@ const textoTotal = document.getElementById("calculadora-total");
 const barra = document.getElementById("calculadora-barra");
 const desglose = document.getElementById("calculadora-desglose");
 const textoOrigen = document.getElementById("calculadora-origen");
+const anuncioTotal = document.getElementById("calculadora-anuncio");
+
+// ¿El usuario pidió reducir el movimiento en su sistema? Entonces nada de animaciones.
+const reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// El número que se ve en pantalla mientras "cuenta" hacia el total nuevo
+const totalAnimado = { valor: 0 };
 
 // ---------- 2. Ayudas ----------
 const formatoMiles = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 0 });
@@ -105,6 +112,27 @@ function porcentajesQueSuman100(valores, total) {
   return enteros;
 }
 
+// Muestra el total. Si GSAP está disponible, el número "cuenta" hasta el valor nuevo.
+function mostrarTotal(total) {
+  anuncioTotal.textContent = `Total mensual: ${formatearCOP(total)}`;
+
+  if (!window.gsap || reducirMovimiento) {
+    totalAnimado.valor = total;
+    textoTotal.textContent = formatearCOP(total);
+    return;
+  }
+
+  gsap.to(totalAnimado, {
+    valor: total,
+    duration: 0.6,
+    ease: "power2.out",
+    overwrite: true, // si escribes rápido, cancela la animación anterior y sigue desde donde iba
+    onUpdate: () => {
+      textoTotal.textContent = formatearCOP(Math.round(totalAnimado.valor));
+    },
+  });
+}
+
 // ---------- 3. Calcular y mostrar ----------
 function calcular() {
   // Convertimos la configuración en datos con su valor actual
@@ -114,7 +142,7 @@ function calcular() {
   const total = valores.reduce((suma, gasto) => suma + gasto.valor, 0);
   const porcentajes = porcentajesQueSuman100(valores.map((g) => g.valor), total);
 
-  textoTotal.textContent = formatearCOP(total);
+  mostrarTotal(total);
 
   // Barra: cada pedazo mide su porcentaje del total
   barra.innerHTML = valores

@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Estilos base de Lenis (scroll suave) -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -191,7 +193,8 @@
     </section>
 
     <!-- ============ DETALLE DEL APARTAMENTO (ventana emergente) ============ -->
-    <dialog class="detalle" id="detalle">
+    <!-- data-lenis-prevent: dentro de la ventana el scroll es el normal del navegador -->
+    <dialog class="detalle" id="detalle" data-lenis-prevent>
       <button class="detalle__cerrar" id="detalle-cerrar" aria-label="Cerrar">
         <i data-lucide="x"></i>
       </button>
@@ -236,7 +239,9 @@
           <!-- Columna derecha: el resultado (lo llena calculadora.js) -->
           <div class="calculadora__resultado">
             <p class="calculadora__total-etiqueta">Total mensual estimado</p>
-            <p class="calculadora__total" id="calculadora-total" aria-live="polite">COP 0</p>
+            <p class="calculadora__total" id="calculadora-total">COP 0</p>
+            <!-- Invisible: anuncia solo el valor final al lector de pantalla (el visible "cuenta" animado) -->
+            <p class="solo-lector" id="calculadora-anuncio" aria-live="polite"></p>
 
             <!-- Barra que muestra qué parte del total es cada gasto -->
             <div class="barra" id="calculadora-barra"></div>
@@ -251,12 +256,145 @@
       </div>
     </section>
 
-    <!-- Próximas secciones:
-         7. Arrendadores · 8. Lista de espera · 9. FAQ -->
+    <!-- ============ 7. ARRENDADORES ============ -->
+    <section class="seccion seccion--crema" id="arrendadores">
+      <div class="contenedor arrendadores">
+        <!-- Columna izquierda: por qué publicar -->
+        <div>
+          <p class="seccion__etiqueta">Para arrendadores</p>
+          <h2 class="seccion__titulo">¿Tienes un apartamento cerca de Uninorte?</h2>
+
+          <ul class="beneficios">
+            <li class="beneficio">
+              <i data-lucide="handshake" class="beneficio__icono"></i>
+              <div>
+                <h3>Inquilinos que llegan con confianza</h3>
+                <p>El estudiante y su familia deciden más rápido cuando saben que el inmueble fue revisado.</p>
+              </div>
+            </li>
+            <li class="beneficio">
+              <i data-lucide="calendar-check" class="beneficio__icono"></i>
+              <div>
+                <h3>Menos visitas perdidas</h3>
+                <p>Quien te contacta ya vio fotos verificadas y sabe qué va a encontrar.</p>
+              </div>
+            </li>
+            <li class="beneficio">
+              <i data-lucide="award" class="beneficio__icono"></i>
+              <div>
+                <h3>Tu anuncio se destaca</h3>
+                <p>El sello de verificado diferencia tu inmueble de los anuncios sin respaldo.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna derecha: precio -->
+        <aside class="plan" aria-label="Precio para arrendadores">
+          <p class="plan__etiqueta">Plan Verificado</p>
+          <p class="plan__precio">COP 150.000 <span>/ inmueble al año</span></p>
+
+          <hr class="plan__linea">
+
+          <ul class="plan__incluye">
+            <li><i data-lucide="check"></i> Publicación de tu anuncio durante 12 meses</li>
+            <li><i data-lucide="check"></i> Revisión de documentos</li>
+            <li><i data-lucide="check"></i> Visita presencial al inmueble</li>
+            <li><i data-lucide="check"></i> Verificación de identidad</li>
+            <li><i data-lucide="check"></i> Sello visible en tu anuncio</li>
+          </ul>
+
+          <a href="#lista-espera" class="boton boton--claro">Publicar mi inmueble</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Próxima sección: 8. Lista de espera (cuando tengamos el Jotform del proyecto) -->
+
+    <!-- ============ 9. PREGUNTAS FRECUENTES ============ -->
+    <!-- <details> y <summary> son un acordeón nativo de HTML: se abre y cierra sin JavaScript -->
+    <section class="seccion" id="preguntas">
+      <div class="contenedor faq">
+        <div>
+          <p class="seccion__etiqueta">Preguntas frecuentes</p>
+          <h2 class="seccion__titulo">Lo que todos preguntan antes de arrendar</h2>
+        </div>
+
+        <div class="faq__lista">
+          <details class="pregunta" open>
+            <summary>¿Qué significa que un apartamento esté verificado?</summary>
+            <p>Que revisamos sus documentos, lo visitamos y confirmamos la identidad del arrendador. Cada tarjeta muestra cuáles de las 3 verificaciones ya pasó.</p>
+          </details>
+
+          <details class="pregunta">
+            <summary>¿Por qué algunos aparecen "en verificación"?</summary>
+            <p>Todo arrendador paga el Plan Verificado, pero las 3 revisiones toman unos días. Mientras tanto ves exactamente cuáles ya están aprobadas y cuáles faltan.</p>
+          </details>
+
+          <details class="pregunta">
+            <summary>¿Cada cuánto se vuelve a verificar?</summary>
+            <p>Cada año, o antes si un inquilino reporta un problema.</p>
+          </details>
+
+          <details class="pregunta">
+            <summary>¿ViveCampus le cobra a los estudiantes?</summary>
+            <p>No. Buscar, comparar y usar la calculadora es gratis para estudiantes y familias. Quien paga es el arrendador.</p>
+          </details>
+
+          <details class="pregunta">
+            <summary>¿Qué pasa si el apartamento no es como se mostró?</summary>
+            <p>Lo reportas desde la página, revisamos el caso y, si se confirma, el inmueble pierde su verificación.</p>
+          </details>
+
+          <details class="pregunta">
+            <summary>¿Solo hay apartamentos en Mallorquín?</summary>
+            <p>Por ahora sí, por su cercanía a Uninorte. Pronto sumaremos más zonas del corredor universitario.</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Íconos Lucide (va primero porque los otros scripts lo usan) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contacto">
+    <div class="contenedor">
+      <div class="footer__superior">
+        <div>
+          <a href="#" class="logo logo--claro">Vive<span>Campus</span></a>
+          <p class="footer__frase">Tu primer hogar lejos de casa, verificado.</p>
+        </div>
+
+        <nav class="footer__columna" aria-label="Enlaces del sitio">
+          <h3>Explorar</h3>
+          <a href="#buscar">Buscar apartamentos</a>
+          <a href="#verificacion">Cómo verificamos</a>
+          <a href="#calculadora">Calculadora</a>
+          <a href="#arrendadores">Para arrendadores</a>
+        </nav>
+
+        <div class="footer__columna">
+          <h3>Contacto</h3>
+          <!-- PENDIENTE: reemplazar por el correo del proyecto cuando exista -->
+          <a href="#preguntas">Preguntas frecuentes</a>
+          <span>Barranquilla, Colombia</span>
+        </div>
+      </div>
+
+      <div class="footer__inferior">
+        <p>© 2026 ViveCampus · Proyecto académico, Universidad del Norte</p>
+        <p>Los apartamentos, precios y reseñas de esta página son datos de ejemplo.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Librerías externas (van primero porque nuestros scripts las usan).
+       Versiones fijas: si la librería saca una versión nueva que cambia algo, la página no se rompe. -->
+  <script src="https://unpkg.com/lucide@1.69.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+
+  <!-- Nuestros scripts -->
   <script src="js/calculadora.js"></script>
   <script src="js/buscador.js"></script>
   <script src="js/main.js"></script>
