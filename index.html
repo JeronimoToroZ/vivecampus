@@ -318,12 +318,91 @@
             <li><i data-lucide="check"></i> Sello visible en tu anuncio</li>
           </ul>
 
-          <a href="#lista-espera" class="boton boton--claro">Publicar mi inmueble</a>
+          <!-- data-rol: al tocarlo, el formulario ya queda con "Arrendador" elegido -->
+          <a href="#lista-espera" class="boton boton--claro" data-rol="Arrendador">Publicar mi inmueble</a>
         </aside>
       </div>
     </section>
 
-    <!-- Próxima sección: 8. Lista de espera (cuando tengamos el Jotform del proyecto) -->
+    <!-- ============ 8. LISTA DE ESPERA ============ -->
+    <!-- El formulario es nuestro (mismo diseño de la página); js/lista-espera.js envía las respuestas a Google Forms -->
+    <section class="seccion seccion--oscura" id="lista-espera">
+      <div class="contenedor lista-espera">
+        <div>
+          <p class="seccion__etiqueta">Lista de espera</p>
+          <h2 class="seccion__titulo">Sé de los primeros en usar ViveCampus</h2>
+          <ul class="lista-espera__puntos">
+            <li><i data-lucide="bell"></i> Te avisamos cuando abramos en Mallorquín.</li>
+            <li><i data-lucide="badge-check"></i> Acceso anticipado a los apartamentos verificados.</li>
+            <li><i data-lucide="message-circle-heart"></i> Tus respuestas nos ayudan a construir algo útil para ti.</li>
+          </ul>
+        </div>
+
+        <form class="formulario" id="formulario-espera" novalidate>
+          <div class="formulario__fila">
+            <label class="campo">
+              <span>Nombre</span>
+              <input type="text" name="nombre" autocomplete="given-name" required>
+            </label>
+            <label class="campo">
+              <span>Correo</span>
+              <input type="email" name="correo" autocomplete="email" required>
+            </label>
+          </div>
+
+          <label class="campo">
+            <span>¿Eres estudiante, padre o madre, o arrendador?</span>
+            <select name="rol" id="campo-rol" required>
+              <option value="">Elige una opción</option>
+              <option>Estudiante</option>
+              <option>Padre o madre</option>
+              <option>Arrendador</option>
+            </select>
+          </label>
+
+          <label class="campo">
+            <span>¿De qué ciudad vienes?</span>
+            <input type="text" name="ciudad" autocomplete="address-level2" required>
+          </label>
+
+          <label class="campo">
+            <span>¿Qué te importa más al elegir vivienda?</span>
+            <select name="prioridad" required>
+              <option value="">Elige una opción</option>
+              <option>Verificación</option>
+              <option>Precio</option>
+              <option>Cercanía</option>
+              <option>Reseñas</option>
+            </select>
+          </label>
+
+          <fieldset class="campo campo--opciones">
+            <legend>¿Alguna vez encontraste un inmueble distinto a lo anunciado?</legend>
+            <label><input type="radio" name="experiencia" value="Sí" required> Sí</label>
+            <label><input type="radio" name="experiencia" value="No"> No</label>
+          </fieldset>
+
+          <!-- Trampa para bots: las personas no ven este campo; si llega lleno, es spam -->
+          <input type="text" name="sitio_web" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label class="consentimiento">
+            <input type="checkbox" name="consentimiento" required>
+            <span>Acepto que ViveCampus use mis datos solo para contactarme sobre este proyecto (Ley 1581 de 2012).</span>
+          </label>
+
+          <p class="formulario__error" id="formulario-error" role="alert" hidden></p>
+
+          <button type="submit" class="boton boton--primario formulario__enviar" id="formulario-enviar">Unirme a la lista</button>
+        </form>
+
+        <!-- Lo que ve la persona después de enviar -->
+        <div class="formulario-gracias" id="formulario-gracias" hidden tabindex="-1">
+          <i data-lucide="party-popper"></i>
+          <h3>¡Listo, ya estás en la lista!</h3>
+          <p>Te avisamos cuando abramos. Gracias por ayudarnos a construir ViveCampus.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- ============ 9. PREGUNTAS FRECUENTES ============ -->
     <!-- <details> y <summary> son un acordeón nativo de HTML: se abre y cierra sin JavaScript -->
@@ -384,6 +463,7 @@
           <a href="#verificacion">Cómo verificamos</a>
           <a href="#calculadora">Calculadora</a>
           <a href="#arrendadores">Para arrendadores</a>
+          <a href="#lista-espera">Lista de espera</a>
         </nav>
 
         <div class="footer__columna">
@@ -411,6 +491,7 @@
   <!-- Nuestros scripts -->
   <script src="js/calculadora.js"></script>
   <script src="js/buscador.js"></script>
+  <script src="js/lista-espera.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

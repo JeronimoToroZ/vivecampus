@@ -140,6 +140,8 @@ function iniciarAnimaciones() {
     ".beneficio",
     ".plan",
     ".pregunta",
+    ".lista-espera__puntos li",
+    ".formulario",
   ].join(", ");
 
   gsap.set(grupos, { y: 40, opacity: 0 });

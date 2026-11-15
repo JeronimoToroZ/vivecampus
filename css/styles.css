@@ -1022,7 +1022,185 @@ section[id] {
   color: var(--gris);
 }
 
-/* ---------- 18. Footer ---------- */
+/* ---------- 18. Lista de espera ---------- */
+.seccion--oscura {
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.seccion--oscura .seccion__etiqueta {
+  color: #9bb35a;
+}
+
+.lista-espera {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.lista-espera__puntos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #c9ccc0;
+}
+
+.lista-espera__puntos li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lista-espera__puntos svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: #9bb35a;
+}
+
+.formulario,
+.formulario-gracias {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+.formulario__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formulario .campo input,
+.formulario .campo select {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  border-radius: 10px;
+  background: var(--blanco);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulario .campo input:focus,
+.formulario .campo select:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}
+
+/* Campo con error: borde rojo (lo marca lista-espera.js con aria-invalid) */
+.formulario [aria-invalid="true"] {
+  border-color: #c0392b !important;
+  outline-color: #c0392b !important;
+}
+
+.campo--opciones {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.campo--opciones legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.campo--opciones label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.campo--opciones input,
+.consentimiento input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--verde); /* colorea radio y checkbox con el verde de la marca */
+}
+
+.consentimiento {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--gris);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.consentimiento input {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* El campo trampa existe para los bots, pero las personas no lo ven */
+.trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.formulario__error {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: #fdecea;
+  color: #a5281b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.formulario__enviar {
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.formulario__enviar:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.formulario-gracias {
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.formulario-gracias:focus {
+  outline: none;
+}
+
+.formulario-gracias svg {
+  width: 48px;
+  height: 48px;
+  color: var(--verde);
+}
+
+.formulario-gracias h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.formulario-gracias p {
+  margin: 0;
+  color: var(--gris);
+}
+
+/* ---------- 18b. Footer ---------- */
 .footer {
   padding: 4.5rem 0 2rem;
   background: var(--negro);
@@ -1104,8 +1282,20 @@ section[id] {
   .calculadora,
   .arrendadores,
   .faq,
-  .footer__superior {
+  .footer__superior,
+  .lista-espera,
+  .formulario__fila {
     grid-template-columns: 1fr;
+  }
+
+  .lista-espera {
+    gap: 2rem;
+  }
+
+  .formulario,
+  .formulario-gracias {
+    grid-column: 1;
+    padding: 1.5rem;
   }
 
   .faq {
