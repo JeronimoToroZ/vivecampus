@@ -22,13 +22,21 @@
     <div class="contenedor navbar__interior">
       <a href="#" class="logo">Vive<span>Campus</span></a>
 
+      <!-- Botón de menú: solo se ve en celular. aria-expanded le dice al lector de pantalla si está abierto -->
+      <button class="menu-boton" id="menu-boton" type="button"
+              aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <span></span>
+        <span></span>
+      </button>
+
       <nav aria-label="Navegación principal">
-        <ul class="navbar__enlaces">
+        <ul class="navbar__enlaces" id="menu-principal">
           <li><a href="#buscar">Buscar</a></li>
           <li><a href="#verificacion">Verificación</a></li>
           <li><a href="#calculadora">Calculadora</a></li>
           <li><a href="#arrendadores">Arrendadores</a></li>
           <li><a href="#contacto">Contacto</a></li>
+          <li class="navbar__cta"><a href="#buscar" class="boton boton--primario">Buscar apartamentos</a></li>
         </ul>
       </nav>
     </div>
@@ -54,7 +62,8 @@
           <a href="#arrendadores" class="boton boton--secundario">Soy arrendador</a>
         </div>
 
-        <p class="hero__dato">6 conjuntos en Mallorquín · a minutos de Uninorte</p>
+        <!-- El número lo calcula buscador.js a partir del JSON, así nunca queda desactualizado -->
+        <p class="hero__dato" id="hero-dato">Apartamentos a minutos de Uninorte</p>
       </div>
     </section>
 
@@ -189,6 +198,11 @@
 
         <!-- Aquí JavaScript dibuja las tarjetas -->
         <div class="resultados" id="resultados"></div>
+
+        <!-- Se muestran 6 tarjetas; este botón carga las siguientes. buscador.js lo esconde cuando ya no hay más -->
+        <div class="ver-mas">
+          <button type="button" class="boton boton--secundario" id="ver-mas" hidden>Ver más apartamentos</button>
+        </div>
       </div>
     </section>
 
@@ -374,7 +388,7 @@
 
         <div class="footer__columna">
           <h3>Contacto</h3>
-          <!-- PENDIENTE: reemplazar por el correo del proyecto cuando exista -->
+          <a href="mailto:vivecampusproyecto@gmail.com">vivecampusproyecto@gmail.com</a>
           <a href="#preguntas">Preguntas frecuentes</a>
           <span>Barranquilla, Colombia</span>
         </div>
@@ -382,7 +396,7 @@
 
       <div class="footer__inferior">
         <p>© 2026 ViveCampus · Proyecto académico, Universidad del Norte</p>
-        <p>Los apartamentos, precios y reseñas de esta página son datos de ejemplo.</p>
+        <p>Los apartamentos, precios y reseñas son datos de ejemplo; las fotos de interiores son ilustrativas.</p>
       </div>
     </div>
   </footer>

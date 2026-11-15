@@ -6,9 +6,17 @@
     "precio": 1350000,
     "habitaciones": 1,
     "minutosUninorte": 7,
-    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
-    "resena": { "texto": "Llego caminando a clase y todo estaba como en las fotos", "autor": "Valentina, Medicina" },
-    "foto": "img/speranza.jpg"
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Llego caminando a clase y todo estaba como en las fotos",
+      "autor": "Valentina, Medicina"
+    },
+    "foto": "img/interiores/apartaestudio-1.jpg",
+    "fotoConjunto": "img/speranza.jpg"
   },
   {
     "id": 2,
@@ -17,9 +25,17 @@
     "precio": 1900000,
     "habitaciones": 2,
     "minutosUninorte": 10,
-    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": false },
-    "resena": { "texto": "Amplio y con buena brisa; ideal para dividir con un amigo", "autor": "Andrés, Ing. Industrial" },
-    "foto": "img/amore.jpg"
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": false
+    },
+    "resena": {
+      "texto": "Amplio y con buena brisa; ideal para dividir con un amigo",
+      "autor": "Andrés, Ing. Industrial"
+    },
+    "foto": "img/interiores/dos-habitaciones-1.jpg",
+    "fotoConjunto": "img/amore.jpg"
   },
   {
     "id": 3,
@@ -28,9 +44,17 @@
     "precio": 850000,
     "habitaciones": 1,
     "minutosUninorte": 8,
-    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
-    "resena": { "texto": "La opción más económica sin sacrificar seguridad", "autor": "Camila, Psicología" },
-    "foto": "img/palmar.jpg"
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "La opción más económica sin sacrificar seguridad",
+      "autor": "Camila, Psicología"
+    },
+    "foto": "img/interiores/habitacion-compartida.jpg",
+    "fotoConjunto": "img/palmar.jpg"
   },
   {
     "id": 4,
@@ -39,9 +63,14 @@
     "precio": 2600000,
     "habitaciones": 3,
     "minutosUninorte": 12,
-    "verificacion": { "documentos": true, "inspeccion": false, "arrendador": false },
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": false,
+      "arrendador": false
+    },
     "resena": null,
-    "foto": "img/mirador.jpg"
+    "foto": "img/interiores/tres-habitaciones-1.jpg",
+    "fotoConjunto": "img/mirador.jpg"
   },
   {
     "id": 5,
@@ -49,10 +78,15 @@
     "conjunto": "Conjunto Residencial Manglar",
     "precio": 1150000,
     "habitaciones": 1,
-    "minutosUninorte": 6,
-    "verificacion": { "documentos": false, "inspeccion": false, "arrendador": false },
+    "minutosUninorte": 4,
+    "verificacion": {
+      "documentos": false,
+      "inspeccion": false,
+      "arrendador": false
+    },
     "resena": null,
-    "foto": "img/manglar.jpg"
+    "foto": "img/interiores/apartaestudio-2.jpg",
+    "fotoConjunto": "img/manglar.jpg"
   },
   {
     "id": 6,
@@ -61,8 +95,296 @@
     "precio": 2200000,
     "habitaciones": 2,
     "minutosUninorte": 9,
-    "verificacion": { "documentos": true, "inspeccion": true, "arrendador": true },
-    "resena": { "texto": "El conjunto es tranquilo y el arrendador responde rápido", "autor": "Santiago, Derecho" },
-    "foto": "img/palmanova.jpg"
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "El conjunto es tranquilo y el arrendador responde rápido",
+      "autor": "Santiago, Derecho"
+    },
+    "foto": "img/interiores/dos-habitaciones-2.jpg",
+    "fotoConjunto": "img/palmanova.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Habitación en apartamento compartido",
+    "conjunto": "Conjunto Speranza",
+    "precio": 780000,
+    "habitaciones": 1,
+    "minutosUninorte": 7,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Compartimos con dos compañeras de la U y todo funciona bien",
+      "autor": "Mariana, Comunicación Social"
+    },
+    "foto": "img/interiores/habitacion-compartida.jpg",
+    "fotoConjunto": "img/speranza.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Apartamento de 3 habitaciones",
+    "conjunto": "Conjunto Residencial Amore",
+    "precio": 2450000,
+    "habitaciones": 3,
+    "minutosUninorte": 10,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/tres-habitaciones-2.jpg",
+    "fotoConjunto": "img/amore.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Apartaestudio con balcón",
+    "conjunto": "Conjunto Residencial Palmar de la Ciénaga",
+    "precio": 1200000,
+    "habitaciones": 1,
+    "minutosUninorte": 8,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Silencioso para estudiar y con buena luz",
+      "autor": "Daniel, Ing. de Sistemas"
+    },
+    "foto": "img/interiores/apartaestudio-1.jpg",
+    "fotoConjunto": "img/palmar.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Habitación con baño privado",
+    "conjunto": "Conjunto Residencial Manglar",
+    "precio": 950000,
+    "habitaciones": 1,
+    "minutosUninorte": 4,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": false,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/habitacion-bano.jpg",
+    "fotoConjunto": "img/manglar.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Apartamento de 2 habitaciones",
+    "conjunto": "Conjunto Residencial Mirador de la Ciénaga",
+    "precio": 1700000,
+    "habitaciones": 2,
+    "minutosUninorte": 12,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "La vista a la ciénaga en las tardes es lo mejor",
+      "autor": "Sofía, Arquitectura"
+    },
+    "foto": "img/interiores/dos-habitaciones-1.jpg",
+    "fotoConjunto": "img/mirador.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Apartaestudio amoblado",
+    "conjunto": "Conjunto Residencial Palmanova",
+    "precio": 1450000,
+    "habitaciones": 1,
+    "minutosUninorte": 9,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Llegué con una maleta y ya tenía todo lo necesario",
+      "autor": "Juan Pablo, Medicina"
+    },
+    "foto": "img/interiores/apartaestudio-2.jpg",
+    "fotoConjunto": "img/palmanova-2.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Apartamento de 2 habitaciones",
+    "conjunto": "Conjunto Residencial Manglar",
+    "precio": 1650000,
+    "habitaciones": 2,
+    "minutosUninorte": 4,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/dos-habitaciones-2.jpg",
+    "fotoConjunto": "img/manglar.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Apartamento de 3 habitaciones con balcón",
+    "conjunto": "Conjunto Residencial Palmanova",
+    "precio": 2900000,
+    "habitaciones": 3,
+    "minutosUninorte": 9,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Ideal para tres amigos: cada uno con su espacio",
+      "autor": "Laura, Negocios Internacionales"
+    },
+    "foto": "img/interiores/tres-habitaciones-1.jpg",
+    "fotoConjunto": "img/palmanova.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Apartamento de 3 habitaciones",
+    "conjunto": "Conjunto Residencial Manglar",
+    "precio": 2300000,
+    "habitaciones": 3,
+    "minutosUninorte": 4,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "A cuatro minutos de la U: salgo diez antes de clase y llego",
+      "autor": "Valeria, Derecho"
+    },
+    "foto": "img/interiores/tres-habitaciones-2.jpg",
+    "fotoConjunto": "img/manglar.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Apartamento de 2 habitaciones",
+    "conjunto": "Conjunto Speranza",
+    "precio": 1400000,
+    "habitaciones": 2,
+    "minutosUninorte": 7,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": null,
+    "foto": "img/interiores/dos-habitaciones-1.jpg",
+    "fotoConjunto": "img/speranza.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "Apartaestudio amoblado premium",
+    "conjunto": "Conjunto Residencial Amore",
+    "precio": 1600000,
+    "habitaciones": 1,
+    "minutosUninorte": 10,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": false,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/apartaestudio-1.jpg",
+    "fotoConjunto": "img/amore.jpg"
+  },
+  {
+    "id": 18,
+    "nombre": "Apartamento de 3 habitaciones para compartir",
+    "conjunto": "Conjunto Residencial Mirador de la Ciénaga",
+    "precio": 1950000,
+    "habitaciones": 3,
+    "minutosUninorte": 12,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/tres-habitaciones-1.jpg",
+    "fotoConjunto": "img/mirador.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Apartaestudio cerca a la ciénaga",
+    "conjunto": "Conjunto Residencial Lanai",
+    "precio": 1100000,
+    "habitaciones": 1,
+    "minutosUninorte": 8,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Buena portería y el conjunto es muy tranquilo de noche",
+      "autor": "Andrea, Enfermería"
+    },
+    "foto": "img/interiores/apartaestudio-2.jpg",
+    "fotoConjunto": "img/lanai.jpg"
+  },
+  {
+    "id": 20,
+    "nombre": "Apartamento de 2 habitaciones",
+    "conjunto": "Conjunto Residencial Lanai",
+    "precio": 1750000,
+    "habitaciones": 2,
+    "minutosUninorte": 8,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": false
+    },
+    "resena": null,
+    "foto": "img/interiores/dos-habitaciones-2.jpg",
+    "fotoConjunto": "img/lanai.jpg"
+  },
+  {
+    "id": 21,
+    "nombre": "Apartamento de 2 habitaciones con terraza",
+    "conjunto": "Serenity Tower Residencias",
+    "precio": 2350000,
+    "habitaciones": 2,
+    "minutosUninorte": 11,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": {
+      "texto": "Zonas verdes muy bonitas y todo bien cuidado",
+      "autor": "Camilo, Ing. Civil"
+    },
+    "foto": "img/interiores/dos-habitaciones-1.jpg",
+    "fotoConjunto": "img/serenity.jpg"
+  },
+  {
+    "id": 22,
+    "nombre": "Apartaestudio con balcón",
+    "conjunto": "Serenity Tower Residencias",
+    "precio": 1550000,
+    "habitaciones": 1,
+    "minutosUninorte": 11,
+    "verificacion": {
+      "documentos": true,
+      "inspeccion": true,
+      "arrendador": true
+    },
+    "resena": null,
+    "foto": "img/interiores/apartaestudio-1.jpg",
+    "fotoConjunto": "img/serenity.jpg"
   }
 ]

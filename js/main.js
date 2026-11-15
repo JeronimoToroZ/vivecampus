@@ -17,10 +17,67 @@ function actualizarNavbar() {
 window.addEventListener("scroll", actualizarNavbar, { passive: true });
 actualizarNavbar();
 
-// ---------- 3. Animaciones ----------
+// Preferencia del sistema: menos movimiento (la usan el menú y las animaciones)
+const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---------- 3. Menú de celular ----------
+const menuBoton = document.getElementById("menu-boton");
+const menu = document.getElementById("menu-principal");
+
+// Se declara aquí arriba porque el menú y las animaciones lo comparten.
+// Si las animaciones no se activan, se queda en null y el menú igual funciona.
+let lenis = null;
+
+function cambiarMenu(abrir) {
+  navbar.classList.toggle("navbar--menu-abierto", abrir);
+  menuBoton.setAttribute("aria-expanded", String(abrir));
+  menuBoton.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú");
+
+  // Con el menú abierto, la página de atrás no se mueve
+  document.body.style.overflow = abrir ? "hidden" : "";
+  if (lenis) abrir ? lenis.stop() : lenis.start();
+}
+
+function menuAbierto() {
+  return navbar.classList.contains("navbar--menu-abierto");
+}
+
+menuBoton.addEventListener("click", () => {
+  cambiarMenu(!menuAbierto());
+  if (menuAbierto()) menu.querySelector("a").focus(); // el teclado salta al primer enlace
+});
+
+// Al tocar un enlace: cerrar el menú y luego ir a la sección
+menu.addEventListener("click", (evento) => {
+  const enlace = evento.target.closest('a[href^="#"]');
+  if (!enlace || !menuAbierto()) return; // en escritorio, el enlace funciona normal
+
+  evento.preventDefault();
+  evento.stopPropagation(); // que nadie más procese este clic: ya lo manejamos aquí
+  cambiarMenu(false);
+
+  const destino = document.querySelector(enlace.getAttribute("href"));
+  if (!destino) return;
+  if (lenis) lenis.scrollTo(destino); // Lenis ya respeta el scroll-margin-top del CSS
+  else destino.scrollIntoView({ behavior: sinMovimiento ? "auto" : "smooth" });
+});
+
+// Escape cierra el menú y devuelve el foco al botón
+document.addEventListener("keydown", (evento) => {
+  if (evento.key === "Escape" && menuAbierto()) {
+    cambiarMenu(false);
+    menuBoton.focus();
+  }
+});
+
+// Si la pantalla se agranda (girar el celular, ventana más ancha), el menú se cierra
+window.matchMedia("(min-width: 761px)").addEventListener("change", (consulta) => {
+  if (consulta.matches && menuAbierto()) cambiarMenu(false);
+});
+
+// ---------- 4. Animaciones ----------
 // Regla de oro: si el usuario pidió menos movimiento en su sistema,
 // o las librerías no cargaron, la página se muestra completa y quieta.
-const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hayLibrerias = window.gsap && window.ScrollTrigger && window.Lenis;
 
 if (!sinMovimiento && hayLibrerias) {
@@ -31,7 +88,7 @@ function iniciarAnimaciones() {
   gsap.registerPlugin(ScrollTrigger);
 
   // ----- 3.1 Scroll suave con Lenis -----
-  const lenis = new Lenis({
+  lenis = new Lenis({
     duration: 1.1,
     anchors: true, // los enlaces #seccion también se mueven suave (el espacio para la navbar lo da scroll-margin-top en el CSS)
   });

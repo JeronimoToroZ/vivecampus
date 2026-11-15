@@ -37,6 +37,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Sin esto, una clase con "display" (como .boton) le gana al atributo hidden y el elemento no se oculta */
+[hidden] {
+  display: none !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -136,6 +141,57 @@ a {
 .navbar__enlaces a {
   color: var(--gris);
   transition: color 0.2s ease;
+}
+
+/* El botón destacado solo aparece dentro del menú de celular */
+.navbar__cta {
+  display: none;
+}
+
+/* Botón hamburguesa: oculto en escritorio */
+.menu-boton {
+  display: none;
+  position: relative;
+  width: 44px; /* 44 px: tamaño mínimo cómodo para tocar con el dedo */
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-boton span {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--negro);
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.menu-boton span:first-child {
+  top: 17px;
+}
+
+.menu-boton span:last-child {
+  top: 25px;
+}
+
+/* Abierto: las dos rayas se cruzan y forman una X */
+.navbar--menu-abierto .menu-boton span:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.navbar--menu-abierto .menu-boton span:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+.menu-boton:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
 
 .navbar__enlaces a:hover {
@@ -436,6 +492,38 @@ section[id] {
   object-fit: cover;
 }
 
+/* Etiqueta honesta: las fotos de interiores son de referencia */
+.foto-ilustrativa {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.6);
+  color: var(--blanco);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Foto de la fachada del conjunto, dentro del detalle */
+.detalle__conjunto {
+  margin: 0 0 1.5rem;
+}
+
+.detalle__conjunto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+.detalle__conjunto figcaption {
+  margin-top: 0.4rem;
+  color: var(--gris);
+  font-size: 0.8rem;
+}
+
 .tarjeta__cuerpo {
   display: flex;
   flex: 1;
@@ -521,6 +609,19 @@ section[id] {
 
 .insignia--ninguna {
   color: var(--gris);
+}
+
+.ver-mas {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.ver-mas .boton {
+  font-family: inherit;
+  font-size: 1rem;
+  background: transparent;
+  cursor: pointer;
 }
 
 .sin-resultados {
@@ -1015,8 +1116,70 @@ section[id] {
     position: static;
   }
 
+  /* ----- Menú de celular ----- */
+  .menu-boton {
+    display: block;
+    order: 2; /* siempre al extremo derecho */
+  }
+
+  .navbar nav {
+    order: 1; /* el <nav> queda sin ancho; así no empuja el botón al centro */
+  }
+
+  /* El panel ocupa toda la pantalla debajo de la navbar.
+     Va con position: absolute (y no fixed) porque la navbar tiene backdrop-filter,
+     y eso hace que un hijo "fixed" se ubique respecto a la navbar y no a la pantalla. */
   .navbar__enlaces {
-    display: none; /* el menú móvil lo hacemos más adelante */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100dvh - 72px);
+    flex-direction: column;
+    gap: 0;
+    padding: 1.5rem 1.25rem 2rem;
+    background: var(--blanco);
+    font-size: 1.35rem;
+    font-weight: 600;
+    overflow-y: auto;
+    /* Cerrado: invisible y un poco más arriba */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .navbar--menu-abierto .navbar__enlaces {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    /* Al abrir, "visible" se aplica al instante para poder enfocar el primer enlace;
+       al cerrar, se espera a que termine el desvanecido */
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+  }
+
+  .navbar__enlaces li {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  }
+
+  .navbar__enlaces a {
+    display: block;
+    padding: 1.1rem 0;
+    color: var(--negro);
+  }
+
+  .navbar__cta {
+    display: block;
+    margin-top: 2rem;
+    border-bottom: none !important;
+  }
+
+  .navbar__cta .boton {
+    display: block;
+    padding: 1rem;
+    color: var(--blanco);
+    font-size: 1.05rem;
+    text-align: center;
   }
 
   .hero {
