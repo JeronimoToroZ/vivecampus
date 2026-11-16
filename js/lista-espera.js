@@ -4,20 +4,21 @@
 // =========================================================
 
 // ---------- 1. Conexión con Google Forms ----------
-// PENDIENTE: llenar con los datos del Google Form del proyecto.
-// - FORM_ID: el código largo que aparece en el enlace del formulario.
-// - CAMPOS: el número "entry.XXXX" de cada pregunta (sale del "enlace prellenado").
-// Mientras FORM_ID esté vacío, el formulario funciona en "modo prueba": valida y muestra
+// Formulario "Lista de espera ViveCampus" en la cuenta vivecampusproyecto@gmail.com.
+// Las respuestas caen en la hoja "Respuestas lista de espera ViveCampus" de esa cuenta.
+// - FORM_ID: el código del formulario publicado (va en la URL de envío).
+// - CAMPOS: el número interno de cada pregunta, sacado del "enlace prellenado".
+// Si algún día vacías FORM_ID, el formulario vuelve a "modo prueba": valida y muestra
 // el mensaje de gracias, pero no envía nada.
 const GOOGLE_FORM = {
-  FORM_ID: "",
+  FORM_ID: "1FAIpQLSdgqcvopYOgZ4ubftiYOy3oSqtFeBZMP89YoZWTW4AQR8dJ4w",
   CAMPOS: {
-    nombre: "entry.0",
-    correo: "entry.0",
-    rol: "entry.0",
-    ciudad: "entry.0",
-    prioridad: "entry.0",
-    experiencia: "entry.0",
+    nombre: "entry.1251296849",
+    correo: "entry.1336725185",
+    rol: "entry.1531009376",
+    ciudad: "entry.1215654857",
+    prioridad: "entry.594913401",
+    experiencia: "entry.715654150",
   },
 };
 
