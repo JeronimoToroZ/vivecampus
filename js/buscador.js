@@ -214,6 +214,29 @@ function abrirDetalle(id) {
        </blockquote>`
     : `<p class="resena"><small>Este apartamento aún no tiene reseñas.</small></p>`;
 
+  // Contacto del arrendador (datos de ejemplo). El teléfono va oculto en parte,
+  // como en Airbnb: el número completo se comparte al confirmar la reserva.
+  const a = apto.arrendador;
+  const contacto = a
+    ? `<div class="contacto">
+         <p class="contacto__titulo">Contacto del arrendador</p>
+         <div class="contacto__persona">
+           <span class="contacto__avatar">${a.nombre.charAt(0)}</span>
+           <div>
+             <strong>${a.nombre}</strong>
+             <small>${apto.verificacion.arrendador ? "Identidad verificada por ViveCampus" : "Verificación de identidad pendiente"}</small>
+           </div>
+         </div>
+         <a class="contacto__dato" href="mailto:${a.correo}?subject=${encodeURIComponent("Interés en " + apto.nombre + " (" + apto.conjunto + ")")}">
+           <i data-lucide="mail"></i> ${a.correo}
+         </a>
+         <p class="contacto__dato">
+           <i data-lucide="phone"></i> +57 300 *** **${a.telefonoFinal}
+         </p>
+         <small class="contacto__nota">El número completo se comparte al confirmar la reserva · Datos de ejemplo</small>
+       </div>`
+    : "";
+
   contenidoDetalle.innerHTML = `
     ${crearFoto(apto)}
     <div class="detalle__cuerpo">
@@ -230,7 +253,12 @@ function abrirDetalle(id) {
              onerror="this.parentElement.remove()">
         <figcaption>${apto.conjunto}</figcaption>
       </figure>
-      <a href="#calculadora" class="boton boton--primario" id="detalle-calcular">Calcular mi costo mensual</a>
+      ${contacto}
+      <div class="detalle__acciones">
+        <!-- Lleva a la página de reserva y le pasa el id del apartamento en la dirección (?id=) -->
+        <a href="reservar.html?id=${apto.id}" class="boton boton--primario">Arrendar este apartamento</a>
+        <button type="button" class="boton boton--secundario" id="detalle-calcular">Calcular mi costo mensual</button>
+      </div>
     </div>`;
 
   dibujarIconos();
@@ -264,20 +292,43 @@ contenedorResultados.addEventListener("click", (evento) => {
 });
 
 // Cerrar el detalle: con la X, haciendo clic afuera, o al ir a la calculadora
-botonCerrar.addEventListener("click", () => ventanaDetalle.close());
+botonCerrar.addEventListener("click", cerrarDetalle);
+
+// Cierra la ventana de forma segura en cualquier navegador
+function cerrarDetalle() {
+  try {
+    if (ventanaDetalle.open) ventanaDetalle.close();
+  } catch (error) {
+    ventanaDetalle.removeAttribute("open"); // respaldo si close() falla
+  }
+}
+
+// "Calcular mi costo mensual": cerrar, avisar a la calculadora y bajar hasta ella.
+// Es un <button> (no un enlace) y hace todo con JavaScript, para no depender de cómo
+// cada navegador maneja un enlace dentro de una ventana emergente.
+function irACalculadora() {
+  cerrarDetalle();
+
+  // Avisamos a la calculadora qué apartamento se eligió.
+  // buscador.js no toca la calculadora directamente: solo lanza un evento,
+  // y calculadora.js decide qué hacer con él. Así cada archivo es independiente.
+  document.dispatchEvent(new CustomEvent("apartamento-elegido", { detail: aptoSeleccionado }));
+
+  const destino = document.getElementById("calculadora");
+  // Esperamos un cuadro para que el navegador termine de cerrar la ventana antes de mover la página
+  requestAnimationFrame(() => {
+    if (typeof lenis !== "undefined" && lenis) {
+      lenis.start(); // por si seguía detenido mientras la ventana estaba abierta
+      lenis.scrollTo(destino);
+    } else {
+      destino.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
 
 ventanaDetalle.addEventListener("click", (evento) => {
-  if (evento.target === ventanaDetalle) ventanaDetalle.close(); // clic en el fondo oscuro
-  if (evento.target.closest("#detalle-calcular")) {
-    ventanaDetalle.close();
-
-    // Avisamos a la calculadora qué apartamento se eligió.
-    // buscador.js no toca la calculadora directamente: solo lanza un evento,
-    // y calculadora.js decide qué hacer con él. Así cada archivo es independiente.
-    document.dispatchEvent(
-      new CustomEvent("apartamento-elegido", { detail: aptoSeleccionado })
-    );
-  }
+  if (evento.target === ventanaDetalle) cerrarDetalle(); // clic en el fondo oscuro
+  if (evento.target.closest("#detalle-calcular")) irACalculadora();
 });
 
 // El dato del hero se calcula con los datos reales: si agregan un apartamento, se actualiza solo

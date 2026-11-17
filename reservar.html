@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirma y paga — ViveCampus</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-reserva">
+
+  <!-- ============ NAVBAR SIMPLE ============ -->
+  <header class="navbar">
+    <div class="contenedor navbar__interior">
+      <a href="index.html" class="logo">Vive<span>Campus</span></a>
+      <a href="index.html#buscar" class="volver"><i data-lucide="arrow-left"></i> Volver a los apartamentos</a>
+    </div>
+  </header>
+
+  <main class="contenedor reserva-pagina">
+    <!-- Aviso: es un prototipo, no se cobra nada -->
+    <p class="aviso-demo">
+      <i data-lucide="info"></i>
+      Demostración del proyecto: no se realiza ningún cobro ni se envían tus datos.
+    </p>
+
+    <h1 class="reserva-pagina__titulo">Confirma y paga</h1>
+
+    <!-- Si el apartamento no existe, reservar.js muestra este mensaje -->
+    <div class="reserva-error" id="reserva-error" hidden>
+      <h2>No encontramos ese apartamento</h2>
+      <p>Es posible que el enlace esté incompleto.</p>
+      <a href="index.html#buscar" class="boton boton--primario">Ver apartamentos</a>
+    </div>
+
+    <div class="reserva" id="reserva" hidden>
+      <!-- ===== Columna izquierda: los 3 pasos ===== -->
+      <form class="reserva__pasos" id="form-reserva" novalidate>
+
+        <!-- Paso 1 -->
+        <section class="paso-reserva" data-paso="1">
+          <header class="paso-reserva__cabecera">
+            <h2>1. Tus datos</h2>
+            <button type="button" class="paso-reserva__editar" data-editar="1" hidden>Editar</button>
+          </header>
+          <p class="paso-reserva__resumen" hidden></p>
+          <div class="paso-reserva__cuerpo">
+            <div class="formulario__fila">
+              <label class="campo">
+                <span>Nombre completo</span>
+                <input type="text" name="nombre" autocomplete="name" required>
+              </label>
+              <label class="campo">
+                <span>Celular</span>
+                <input type="tel" name="celular" autocomplete="tel" inputmode="tel" required>
+              </label>
+            </div>
+            <label class="campo">
+              <span>Correo</span>
+              <input type="email" name="correo" autocomplete="email" required>
+            </label>
+            <div class="formulario__fila">
+              <label class="campo">
+                <span>Fecha de ingreso</span>
+                <input type="date" name="ingreso" id="campo-ingreso" required>
+              </label>
+              <label class="campo">
+                <span>Duración del contrato</span>
+                <select name="duracion" id="campo-duracion" required>
+                  <option value="6">Un semestre (6 meses)</option>
+                  <option value="12">Un año (12 meses)</option>
+                </select>
+              </label>
+            </div>
+            <button type="button" class="boton boton--primario paso-reserva__siguiente" data-siguiente="1">Continuar</button>
+          </div>
+        </section>
+
+        <!-- Paso 2 -->
+        <section class="paso-reserva" data-paso="2">
+          <header class="paso-reserva__cabecera">
+            <h2>2. Método de pago</h2>
+            <button type="button" class="paso-reserva__editar" data-editar="2" hidden>Editar</button>
+          </header>
+          <p class="paso-reserva__resumen" hidden></p>
+          <div class="paso-reserva__cuerpo">
+            <fieldset class="metodos">
+              <legend class="solo-lector">Elige cómo pagar</legend>
+              <label class="metodo">
+                <input type="radio" name="metodo" value="PSE" required>
+                <i data-lucide="landmark"></i>
+                <span><strong>PSE</strong><small>Débito desde tu cuenta bancaria</small></span>
+              </label>
+              <label class="metodo">
+                <input type="radio" name="metodo" value="Tarjeta">
+                <i data-lucide="credit-card"></i>
+                <span><strong>Tarjeta débito o crédito</strong><small>Visa, Mastercard</small></span>
+              </label>
+              <label class="metodo">
+                <input type="radio" name="metodo" value="Nequi">
+                <i data-lucide="smartphone"></i>
+                <span><strong>Nequi</strong><small>Pago desde la app</small></span>
+              </label>
+            </fieldset>
+            <p class="nota-pago">
+              <i data-lucide="shield-check"></i>
+              En la versión real, al confirmar se abriría una pasarela de pago segura (por ejemplo, Wompi).
+              ViveCampus nunca pide los datos de tu tarjeta en este formulario.
+            </p>
+            <button type="button" class="boton boton--primario paso-reserva__siguiente" data-siguiente="2">Continuar</button>
+          </div>
+        </section>
+
+        <!-- Paso 3 -->
+        <section class="paso-reserva" data-paso="3">
+          <header class="paso-reserva__cabecera">
+            <h2>3. Revisa y confirma</h2>
+          </header>
+          <div class="paso-reserva__cuerpo">
+            <ul class="revision" id="revision"></ul>
+            <label class="consentimiento">
+              <input type="checkbox" name="terminos" required>
+              <span>Acepto las condiciones del arriendo y que ViveCampus comparta mis datos con el arrendador para firmar el contrato.</span>
+            </label>
+            <button type="submit" class="boton boton--primario reserva__confirmar">Confirmar y pagar</button>
+          </div>
+        </section>
+
+        <p class="formulario__error" id="reserva-error-campos" role="alert" hidden></p>
+      </form>
+
+      <!-- ===== Columna derecha: resumen del apartamento ===== -->
+      <aside class="resumen-reserva" id="resumen-reserva" aria-label="Resumen de la reserva"></aside>
+    </div>
+
+    <!-- Pantalla final, después de confirmar -->
+    <div class="reserva-lista" id="reserva-lista" hidden tabindex="-1"></div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@1.69.0/dist/umd/lucide.min.js"></script>
+  <script src="js/reservar.js"></script>
+</body>
+</html>

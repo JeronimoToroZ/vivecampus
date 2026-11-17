@@ -11,6 +11,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Patricia R.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "31"
+    },
     "resena": {
       "texto": "Llego caminando a clase y todo estaba como en las fotos",
       "autor": "Valentina, Medicina"
@@ -29,6 +34,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": false
+    },
+    "arrendador": {
+      "nombre": "Luis Fernando G.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "68"
     },
     "resena": {
       "texto": "Amplio y con buena brisa; ideal para dividir con un amigo",
@@ -49,6 +59,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Marta C.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "15"
+    },
     "resena": {
       "texto": "La opción más económica sin sacrificar seguridad",
       "autor": "Camila, Psicología"
@@ -68,6 +83,11 @@
       "inspeccion": false,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Jorge E.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "52"
+    },
     "resena": null,
     "foto": "img/interiores/tres-habitaciones-1.jpg",
     "fotoConjunto": "img/mirador.jpg"
@@ -84,6 +104,11 @@
       "inspeccion": false,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Adriana P.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "89"
+    },
     "resena": null,
     "foto": "img/interiores/apartaestudio-2.jpg",
     "fotoConjunto": "img/manglar.jpg"
@@ -99,6 +124,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Ricardo M.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "36"
     },
     "resena": {
       "texto": "El conjunto es tranquilo y el arrendador responde rápido",
@@ -119,6 +149,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Claudia V.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "73"
+    },
     "resena": {
       "texto": "Compartimos con dos compañeras de la U y todo funciona bien",
       "autor": "Mariana, Comunicación Social"
@@ -138,6 +173,11 @@
       "inspeccion": true,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Hernán S.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "20"
+    },
     "resena": null,
     "foto": "img/interiores/tres-habitaciones-2.jpg",
     "fotoConjunto": "img/amore.jpg"
@@ -153,6 +193,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Liliana O.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "57"
     },
     "resena": {
       "texto": "Silencioso para estudiar y con buena luz",
@@ -173,6 +218,11 @@
       "inspeccion": false,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Fabio D.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "94"
+    },
     "resena": null,
     "foto": "img/interiores/habitacion-bano.jpg",
     "fotoConjunto": "img/manglar.jpg"
@@ -188,6 +238,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Sandra M.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "41"
     },
     "resena": {
       "texto": "La vista a la ciénaga en las tardes es lo mejor",
@@ -208,6 +263,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Óscar T.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "78"
+    },
     "resena": {
       "texto": "Llegué con una maleta y ya tenía todo lo necesario",
       "autor": "Juan Pablo, Medicina"
@@ -227,6 +287,11 @@
       "inspeccion": true,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Beatriz H.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "25"
+    },
     "resena": null,
     "foto": "img/interiores/dos-habitaciones-2.jpg",
     "fotoConjunto": "img/manglar.jpg"
@@ -242,6 +307,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Andrés F.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "62"
     },
     "resena": {
       "texto": "Ideal para tres amigos: cada uno con su espacio",
@@ -262,6 +332,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Rosa E.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "99"
+    },
     "resena": {
       "texto": "A cuatro minutos de la U: salgo diez antes de clase y llego",
       "autor": "Valeria, Derecho"
@@ -281,6 +356,11 @@
       "inspeccion": true,
       "arrendador": true
     },
+    "arrendador": {
+      "nombre": "Gustavo L.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "46"
+    },
     "resena": null,
     "foto": "img/interiores/dos-habitaciones-1.jpg",
     "fotoConjunto": "img/speranza.jpg"
@@ -296,6 +376,11 @@
       "documentos": true,
       "inspeccion": false,
       "arrendador": false
+    },
+    "arrendador": {
+      "nombre": "Natalia B.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "83"
     },
     "resena": null,
     "foto": "img/interiores/apartaestudio-1.jpg",
@@ -313,6 +398,11 @@
       "inspeccion": true,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Camilo R.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "30"
+    },
     "resena": null,
     "foto": "img/interiores/tres-habitaciones-1.jpg",
     "fotoConjunto": "img/mirador.jpg"
@@ -328,6 +418,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Diana Q.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "67"
     },
     "resena": {
       "texto": "Buena portería y el conjunto es muy tranquilo de noche",
@@ -348,6 +443,11 @@
       "inspeccion": true,
       "arrendador": false
     },
+    "arrendador": {
+      "nombre": "Mauricio A.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "14"
+    },
     "resena": null,
     "foto": "img/interiores/dos-habitaciones-2.jpg",
     "fotoConjunto": "img/lanai.jpg"
@@ -363,6 +463,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Paola J.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "51"
     },
     "resena": {
       "texto": "Zonas verdes muy bonitas y todo bien cuidado",
@@ -382,6 +487,11 @@
       "documentos": true,
       "inspeccion": true,
       "arrendador": true
+    },
+    "arrendador": {
+      "nombre": "Germán N.",
+      "correo": "vivecampusproyecto@gmail.com",
+      "telefonoFinal": "88"
     },
     "resena": null,
     "foto": "img/interiores/apartaestudio-1.jpg",
